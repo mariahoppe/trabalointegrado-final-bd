@@ -18,11 +18,41 @@ import {
 
 import { redis } from "./services/redisClient.js";
 import { syncData } from "./services/syncService.js";
+import { connectMongo } from "./database/mongoClient.js";
+import { testConnection } from "./database/neo4jClient.js";
 
 dotenv.config();
 
 // LOG PRA TESTE
 console.log(">>> app.js começou a executar");
+
+// Conectar aos bancos na inicialização
+async function initializeDatabases() {
+  try {
+    // Conectar MongoDB
+    await connectMongo();
+    
+    // Testar Neo4j
+    await testConnection();
+    
+    // Testar PostgreSQL
+    const pgOk = await ping();
+    if (pgOk) {
+      console.log("🟢 PostgreSQL conectado com sucesso");
+    } else {
+      console.log("🔴 PostgreSQL com problemas");
+    }
+    
+    // Testar Redis
+    await redis.ping();
+    console.log("🟢 Redis conectado com sucesso");
+    
+  } catch (error) {
+    console.error("❌ Erro na inicialização dos bancos:", error.message);
+  }
+}
+
+initializeDatabases();
 
 const app = express();
 app.use(cors());

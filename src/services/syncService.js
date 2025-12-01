@@ -9,17 +9,27 @@ import {
 import {
   getAllClientsWithFriends,
 } from "../database/graphService.js";
+import { testConnection } from "../database/neo4jClient.js";
 
 export async function syncData() {
   try {
     console.log("🔄 Iniciando sincronização...");
 
-    const [clientes, clientesComCompras, interesses, clientesComAmigos] =
+    // Verificar se Neo4j está disponível
+    const neo4jAvailable = await testConnection();
+    
+    let clientesComAmigos = [];
+    if (neo4jAvailable) {
+      clientesComAmigos = await getAllClientsWithFriends();
+    } else {
+      console.log("⚠️  Sincronizando sem dados do Neo4j (não disponível)");
+    }
+
+    const [clientes, clientesComCompras, interesses] =
       await Promise.all([
         getAllClients(),            // base relacional
         getClientsWithPurchases(),  // relacional com compras
         getAllClientsInterests(),   // Mongo
-        getAllClientsWithFriends(), // Neo4j
       ]);
 
     await redis.set("clientes", JSON.stringify(clientes));
@@ -38,9 +48,9 @@ export async function syncData() {
 
     console.log("✅ Dados sincronizados com sucesso no Redis!");
   } catch (error) {
-    console.error("❌ Erro ao sincronizar dados: ", error);
+    console.error("❌ Erro ao sincronizar dados: ", error.message);
     throw error;
   }
 }
 
-  export default syncData;
+export default syncData;
