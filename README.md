@@ -116,8 +116,8 @@ npm run dev
 ```
 
 📌 
+<img width="461" height="204" alt="image" src="https://github.com/user-attachments/assets/54e6f4db-db38-47ee-8581-523931fc0276" />
 
-![image.png](attachment:a61e6af2-c1d0-447b-8921-350c7510e0ef:image.png)
 
 ---
 
@@ -133,7 +133,8 @@ npm run dev
 
 📌 
 
-![image.png](attachment:18caee3f-117e-4e1b-8a4b-50aba9573509:image.png)
+<img width="561" height="222" alt="image" src="https://github.com/user-attachments/assets/8555c3e9-bcef-42a6-9ae5-8c3384b19882" />
+
 
 ### **Script SQL**
 
@@ -265,7 +266,8 @@ Armazena interesses de cada cliente:
 
 📌 
 
-![image.png](attachment:a37c2472-c2d7-442c-b85a-de11f8044c0b:image.png)
+<img width="1763" height="1010" alt="image" src="https://github.com/user-attachments/assets/de460e4d-e480-46d4-b6d2-72154f675ef0" />
+
 
 ---
 
@@ -284,8 +286,7 @@ RETURN n, r, m;
 ```
 
 📌 
-
-![image.png](attachment:a41c47c0-7313-4bbd-92d3-9177229cc0ff:image.png)
+<img width="1304" height="877" alt="image" src="https://github.com/user-attachments/assets/13d32dfc-b056-4302-afe5-074db4e795e4" />
 
 ---
 
@@ -348,7 +349,8 @@ Crie uma coleção contendo todas as rotas acima.
 
 https://maria-hoppe-8931454.postman.co/workspace/87ceb8db-c761-487b-8179-87240646dc87/folder/50419383-0dc27f8c-1ef8-4124-b2ee-b78f7c070e51
 
-![image.png](attachment:bc4ad630-82d2-4cac-bf27-62c28b7b986b:image.png)
+<img width="739" height="562" alt="image" src="https://github.com/user-attachments/assets/e115bd0e-35ac-4768-b61f-e34cc05db62c" />
+
 
 # 🏁 **8. Conclusão**
 
